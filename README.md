@@ -26,8 +26,8 @@ Os seguintes aspectos serão avaliados:
 ## Entrega
 
 - Criar um repositorio **PRIVADO** aqui no github
+- Enviar o link do repo/invite para **john@fehra.co** com o prazo para finalização do desafio (você decide)
 - Adicionar **john@fehra.co** com permissão de leitura
-- Enviar o link do repo/invite para **john@fehra.co**
 - Não é necessário publicar o projeto, apenas o repositório é suficiente
 
 ## Cuidado
