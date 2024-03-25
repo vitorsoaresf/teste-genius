@@ -1,6 +1,47 @@
+:root {
+  --square-width: 210px;
+  --square-height: 120px;
+  --square-z-index: 1;
+  --square-position: absolute;
+}
+
 .main_container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+.square {
+  width: var(--square-width);
+  height: var(--square-height);
+  z-index: var(--square-z-index);
+  position: var(--square-position);
+}
+
+.square-red {
+  background-color: red;
+  transform: rotate(45deg);
+  top: 140px;
+  right: 300px;
+}
+
+.square-green {
+  background-color: green;
+  transform: rotate(135deg);
+  top: 140px;
+  left: 300px;
+}
+
+.square-yellow {
+  background-color: yellow;
+  transform: rotate(225deg);
+  bottom: 140px;
+  left: 300px;
+}
+
+.square-blue {
+  background-color: blue;
+  transform: rotate(315deg);
+  bottom: 140px;
+  right: 300px;
 }
