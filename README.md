@@ -1,3 +1,3 @@
 # Teste
 
-![genius](pngwing.com.png)
+![genius](image.png)
