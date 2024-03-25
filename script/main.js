@@ -9,4 +9,6 @@ const selectRandomColor = () => {
 const sequenceColors = [];
 sequenceColors.push(selectRandomColor());
 
-console.log(sequenceColors);
+const verifyWhatColorPressed = (event) => {
+  console.log(event);
+};

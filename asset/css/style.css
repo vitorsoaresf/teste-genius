@@ -3,6 +3,8 @@
   --square-height: 120px;
   --square-z-index: 1;
   --square-position: absolute;
+  --horizontal-position: 450px;
+  --vertical-position: 140px;
 }
 
 .main_container {
@@ -16,32 +18,33 @@
   height: var(--square-height);
   z-index: var(--square-z-index);
   position: var(--square-position);
+  cursor: pointer;
 }
 
 .square-red {
   background-color: red;
   transform: rotate(45deg);
-  top: 140px;
-  right: 300px;
+  top: var(--vertical-position);
+  right: var(--horizontal-position);
 }
 
 .square-green {
   background-color: green;
   transform: rotate(135deg);
-  top: 140px;
-  left: 300px;
+  top: var(--vertical-position);
+  left: var(--horizontal-position);
 }
 
 .square-yellow {
   background-color: yellow;
   transform: rotate(225deg);
-  bottom: 140px;
-  left: 300px;
+  bottom: var(--vertical-position);
+  left: var(--horizontal-position);
 }
 
 .square-blue {
   background-color: blue;
   transform: rotate(315deg);
-  bottom: 140px;
-  right: 300px;
+  bottom: var(--vertical-position);
+  right: var(--horizontal-position);
 }
