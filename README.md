@@ -15,3 +15,5 @@
 É muito simples!
 
 Dado que utilizamos javascript puro para realizar a implementação, basta clicar duas vezes sobre o arquivo **index.html** que você conseguirá reproduzir o game.
+
+Ou se preferir, acesse o link: https://vitorsoaresf.github.io/teste-genius/
