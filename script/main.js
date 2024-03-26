@@ -14,17 +14,17 @@ const selectRandomColor = () => {
 
 const sumScoreWhenColorSelectedIsCorrect = () => {
   valueSumCorrectSquareSelected += 100;
-  score.innerHTML = valueSumCorrectSquareSelected;
+  score.innerHTML = "🎉" + valueSumCorrectSquareSelected;
 };
 
-const addColorInTheList = () => {
+const addColorInTheListSortedColor = () => {
   const color = selectRandomColor();
   sequenceColors.push(color);
   loadingFeedbackColor();
 };
 
 const waitingTime = () => {
-  return new Promise((res) => setTimeout(res, 1000));
+  return new Promise((res) => setTimeout(res, 1500));
 };
 
 const removeColorSquareWithoutEmphasis = (color) => {
@@ -45,13 +45,32 @@ const addColorSquareWithoutEmphasis = (color) => {
   });
 };
 
+const playSoundColorItenSequence = (color) => {
+  switch (color) {
+    case "red":
+      return "play-fa";
+    case "green":
+      return "play-la";
+    case "yellow":
+      return "play-sol";
+    default:
+      return "play-mi";
+  }
+};
+
+const playSoundColor = (color) => {
+  const audio = document.getElementById(playSoundColorItenSequence(color));
+  audio.play();
+};
+
 const loadingFeedbackColor = async () => {
-  for (let i = 0; i < sequenceColors.length; i++) {
-    const color = sequenceColors[i];
+  for (let count = 0; count < sequenceColors.length; count++) {
+    const color = sequenceColors[count];
     const img = document.getElementsByClassName(`square-${color}`)[0];
 
     await waitingTime().then(() => {
       img.classList.add(`square-${color}-feedback`);
+      playSoundColor(color);
       removeColorSquareWithoutEmphasis(color);
     });
 
@@ -62,8 +81,16 @@ const loadingFeedbackColor = async () => {
   }
 };
 
-const verifyIfLastElementIsActive = () => {
+const verifyIfCurrentColorIsTheLastElementFromListColors = () => {
   return sequenceColors.length === countCompareColors;
+};
+
+const resetInitalValues = () => {
+  bannerLoser.style.visibility = "visible";
+  btPlayGame.classList.add("pulse");
+  sequenceColors = null;
+  countCompareColors = null;
+  valueSumCorrectSquareSelected = null;
 };
 
 const compareColorPressed = async (colorSelected) => {
@@ -71,17 +98,13 @@ const compareColorPressed = async (colorSelected) => {
     if (sequenceColors[countCompareColors] === colorSelected) {
       countCompareColors++;
 
-      if (verifyIfLastElementIsActive()) {
+      if (verifyIfCurrentColorIsTheLastElementFromListColors()) {
         countCompareColors = 0;
         sumScoreWhenColorSelectedIsCorrect();
-        addColorInTheList();
+        addColorInTheListSortedColor();
       }
     } else {
-      bannerLoser.style.visibility = "visible";
-      btPlayGame.classList.add("pulse");
-      sequenceColors = null;
-      countCompareColors = null;
-      valueSumCorrectSquareSelected = null;
+      resetInitalValues();
     }
   }
 };
@@ -89,9 +112,9 @@ const compareColorPressed = async (colorSelected) => {
 const resetGame = () => {
   bannerLoser.style.visibility = "hidden";
   btPlayGame.classList.remove("pulse");
-  score.innerHTML = 0;
+  score.innerHTML = "🎉" + 0;
   countCompareColors = 0;
   sequenceColors = [];
   valueSumCorrectSquareSelected = 0;
-  addColorInTheList();
+  addColorInTheListSortedColor();
 };

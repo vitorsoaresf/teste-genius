@@ -1,15 +1,13 @@
 :root {
   --square-width-zoom: 235px;
   --square-height-zoom: 235px;
-  --square-z-index: 1;
-  --square-position: absolute;
-  --horizontal-position: 460px;
-  --vertical-position: 95px;
   --color-red: red;
   --color-blue: blue;
   --color-green: green;
   --color-yellow: yellow;
+  --color-gray: #607d8b;
   --color-white: white;
+  --color-orange: #ff8800;
 }
 
 .main_container {
@@ -114,7 +112,7 @@
   font-family: "Roboto";
   width: 150px;
   height: 150px;
-  background-color: #607d8b;
+  background-color: var(--color-gray);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -122,9 +120,11 @@
 }
 
 .score-board span {
-  color: #ff8800;
+  color: var(--color-orange);
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #fff;
+  -webkit-text-stroke-color: var(--color-white);
+  text-align: center;
+  word-break: break-word;
 }
 
 .bt-play-game {
