@@ -149,3 +149,8 @@
 .figure-fixed {
   position: relative;
 }
+
+.banner-loser {
+  visibility: hidden;
+  position: absolute;
+}
