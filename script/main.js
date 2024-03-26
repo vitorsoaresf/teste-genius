@@ -17,6 +17,24 @@ const waitingTime = () => {
   return new Promise((res) => setTimeout(res, 1000));
 };
 
+const removeColorSquareWithoutEmphasis = (color) => {
+  const listOtherElements = colorArray.filter((item) => item !== color);
+
+  listOtherElements.forEach((color) => {
+    const square = document.getElementsByClassName(`square-${color}`)[0];
+    square.classList.add("remove-color");
+  });
+};
+
+const addColorSquareWithoutEmphasis = (color) => {
+  const listOtherElements = colorArray.filter((item) => item !== color);
+
+  listOtherElements.forEach((color) => {
+    const square = document.getElementsByClassName(`square-${color}`)[0];
+    square.classList.remove("remove-color");
+  });
+};
+
 const loadingFeedbackColor = async () => {
   for (let i = 0; i < sequenceColors.length; i++) {
     const color = sequenceColors[i];
@@ -24,10 +42,12 @@ const loadingFeedbackColor = async () => {
 
     await waitingTime().then(() => {
       img.classList.add(`square-${color}-feedback`);
+      removeColorSquareWithoutEmphasis(color);
     });
 
     await waitingTime().then(() => {
       img.classList.remove(`square-${color}-feedback`);
+      addColorSquareWithoutEmphasis(color);
     });
   }
 };

@@ -5,11 +5,11 @@
   --square-position: absolute;
   --horizontal-position: 460px;
   --vertical-position: 95px;
-}
-
-.figure:hover {
-  width: var(--square-width-zoom);
-  height: var(--square-height-zoom);
+  --color-red: red;
+  --color-blue: blue;
+  --color-green: green;
+  --color-yellow: yellow;
+  --color-white: white;
 }
 
 .main_container {
@@ -30,13 +30,17 @@
 }
 
 .square-red:hover {
-  filter: drop-shadow(10px 5px 15px red);
+  filter: drop-shadow(10px 5px 15px var(--color-red));
   width: var(--square-width-zoom);
   height: var(--square-height-zoom);
 }
 
+.square-red:active {
+  filter: drop-shadow(10px 5px 15px var(--color-white));
+}
+
 .square-red-feedback {
-  filter: drop-shadow(10px 5px 15px red);
+  filter: drop-shadow(10px 5px 15px var(--color-red));
 }
 
 .square-green {
@@ -45,13 +49,17 @@
 }
 
 .square-green:hover {
-  filter: drop-shadow(10px 5px 15px green);
+  filter: drop-shadow(10px 5px 15px var(--color-green));
   width: var(--square-width-zoom);
   height: var(--square-height-zoom);
 }
 
+.square-green:active {
+  filter: drop-shadow(10px 5px 15px var(--color-white));
+}
+
 .square-green-feedback {
-  filter: drop-shadow(10px 5px 15px green);
+  filter: drop-shadow(10px 5px 15px var(--color-green));
 }
 
 .square-yellow {
@@ -60,13 +68,17 @@
 }
 
 .square-yellow:hover {
-  filter: drop-shadow(10px 5px 15px yellow);
+  filter: drop-shadow(10px 5px 15px var(--color-yellow));
   width: var(--square-width-zoom);
   height: var(--square-height-zoom);
 }
 
+.square-yellow:active {
+  filter: drop-shadow(10px 5px 15px var(--color-white));
+}
+
 .square-yellow-feedback {
-  filter: drop-shadow(10px 5px 15px yellow);
+  filter: drop-shadow(10px 5px 15px var(--color-yellow));
 }
 
 .square-blue {
@@ -75,18 +87,19 @@
 }
 
 .square-blue:hover {
-  filter: drop-shadow(10px 5px 15px blue);
+  filter: drop-shadow(10px 5px 15px var(--color-blue));
   width: var(--square-width-zoom);
   height: var(--square-height-zoom);
 }
 
-.square-blue-feedback {
-  filter: drop-shadow(10px 5px 15px blue);
+.square-blue:active {
+  filter: drop-shadow(10px 5px 15px var(--color-white));
 }
 
-.correct-color {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  visibility: hidden;
+.square-blue-feedback {
+  filter: drop-shadow(10px 5px 15px var(--color-blue));
+}
+
+.remove-color {
+  filter: grayscale(100%);
 }
