@@ -1,10 +1,17 @@
 const NUMBER_MAX_COLORS = 4;
-const colorArray = ["red", "green", "yellow", "blue"];
+const COLOR_ARRAY = ["red", "green", "yellow", "blue"];
 let sequenceColors = null;
 let countCompareColors = null;
+let valueSumCorrectSquareSelected = null;
 
 const selectRandomColor = () => {
-  return colorArray[Math.floor(Math.random() * NUMBER_MAX_COLORS)];
+  return COLOR_ARRAY[Math.floor(Math.random() * NUMBER_MAX_COLORS)];
+};
+
+const sumScoreWhenColorSelectedIsCorrect = () => {
+  let score = document.getElementsByClassName("score")[0];
+  valueSumCorrectSquareSelected += 100;
+  score.innerHTML = valueSumCorrectSquareSelected;
 };
 
 const addColorInTheList = () => {
@@ -18,7 +25,7 @@ const waitingTime = () => {
 };
 
 const removeColorSquareWithoutEmphasis = (color) => {
-  const listOtherElements = colorArray.filter((item) => item !== color);
+  const listOtherElements = COLOR_ARRAY.filter((item) => item !== color);
 
   listOtherElements.forEach((color) => {
     const square = document.getElementsByClassName(`square-${color}`)[0];
@@ -27,7 +34,7 @@ const removeColorSquareWithoutEmphasis = (color) => {
 };
 
 const addColorSquareWithoutEmphasis = (color) => {
-  const listOtherElements = colorArray.filter((item) => item !== color);
+  const listOtherElements = COLOR_ARRAY.filter((item) => item !== color);
 
   listOtherElements.forEach((color) => {
     const square = document.getElementsByClassName(`square-${color}`)[0];
@@ -53,8 +60,11 @@ const loadingFeedbackColor = async () => {
 };
 
 const resetGame = () => {
+  let score = document.getElementsByClassName("score")[0];
   countCompareColors = 0;
   sequenceColors = [];
+  valueSumCorrectSquareSelected = 0;
+  score.innerHTML = 0;
   addColorInTheList();
 };
 
@@ -68,6 +78,7 @@ const compareColorPressed = (colorSelected) => {
 
     if (verifyIfLastElementIsActive()) {
       countCompareColors = 0;
+      sumScoreWhenColorSelectedIsCorrect();
       addColorInTheList();
     }
   } else {
