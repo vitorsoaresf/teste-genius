@@ -8,6 +8,7 @@
   --color-gray: #607d8b;
   --color-white: white;
   --color-orange: #ff8800;
+  --position-square: absolute;
 }
 
 .main_container {
@@ -17,88 +18,89 @@
   height: 100vh;
 }
 
-.square {
-  background-color: transparent;
-  cursor: pointer;
+.container-square {
+  position: absolute;
 }
 
-.square-red {
-  position: absolute;
+.container-square_default {
+  background-color: transparent;
+  cursor: pointer;
+  position: var(--position-square);
+}
+
+.container-square_red {
   top: -230px;
   left: -5px;
 }
 
-.square-red:hover {
+.container-square_red:hover {
   filter: drop-shadow(10px 5px 15px var(--color-red));
   width: var(--square-width-zoom);
   height: var(--square-height-zoom);
 }
 
-.square-red:active {
+.container-square_red:active {
   filter: drop-shadow(10px 5px 15px var(--color-white));
 }
 
-.square-red-feedback {
+.container-square_red-feedback {
   filter: drop-shadow(10px 5px 15px var(--color-red));
 }
 
-.square-green {
-  position: absolute;
+.container-square_green {
   top: -230px;
   left: -230px;
 }
 
-.square-green:hover {
+.container-square_green:hover {
   filter: drop-shadow(10px 5px 15px var(--color-green));
   width: var(--square-width-zoom);
   height: var(--square-height-zoom);
 }
 
-.square-green:active {
+.container-square_green:active {
   filter: drop-shadow(10px 5px 15px var(--color-white));
 }
 
-.square-green-feedback {
+.container-square_green-feedback {
   filter: drop-shadow(10px 5px 15px var(--color-green));
 }
 
-.square-yellow {
-  position: absolute;
+.container-square_yellow {
   bottom: -220px;
   left: -230px;
 }
 
-.square-yellow:hover {
+.container-square_yellow:hover {
   filter: drop-shadow(10px 5px 15px var(--color-yellow));
   width: var(--square-width-zoom);
   height: var(--square-height-zoom);
 }
 
-.square-yellow:active {
+.container-square_yellow:active {
   filter: drop-shadow(10px 5px 15px var(--color-white));
 }
 
-.square-yellow-feedback {
+.container-square_yellow-feedback {
   filter: drop-shadow(10px 5px 15px var(--color-yellow));
 }
 
-.square-blue {
-  position: absolute;
+.container-square_blue {
   bottom: -220px;
   left: 0px;
 }
 
-.square-blue:hover {
+.container-square_blue:hover {
   filter: drop-shadow(10px 5px 15px var(--color-blue));
   width: var(--square-width-zoom);
   height: var(--square-height-zoom);
 }
 
-.square-blue:active {
+.container-square_blue:active {
   filter: drop-shadow(10px 5px 15px var(--color-white));
 }
 
-.square-blue-feedback {
+.container-square_blue-feedback {
   filter: drop-shadow(10px 5px 15px var(--color-blue));
 }
 
@@ -106,10 +108,10 @@
   filter: grayscale(100%);
 }
 
-.score-board {
-  position: absolute;
+.container-square_score-board {
+  position: var(--position-square);
   font-size: 50px;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, Helvetica, sans-serif;
   width: 150px;
   height: 150px;
   background-color: var(--color-gray);
@@ -119,7 +121,7 @@
   border-radius: 100%;
 }
 
-.score-board span {
+.container-square_score-board span {
   color: var(--color-orange);
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: var(--color-white);
@@ -127,7 +129,7 @@
   word-break: break-word;
 }
 
-.bt-play-game {
+.container-square_bt-play-game {
   width: 100px;
   height: 100px;
   position: absolute;
@@ -137,36 +139,36 @@
   transition: width 0.5s, height 0.5s;
 }
 
-.bt-play-game:hover {
+.container-square_bt-play-game:hover {
   width: 100px;
   height: 100px;
 }
 
-.bt-play-game:active {
+.container-square_bt-play-game:active {
   width: 100px;
   height: 100px;
 }
 
-.pulse {
+.container-square_pulse {
   animation: pulse 0.7s infinite;
   animation-direction: alternate;
   -webkit-animation-name: pulse;
   animation-name: pulse;
 }
 
-.banner-loser {
+.container-square_banner-loser {
   visibility: hidden;
   position: absolute;
   display: flex;
   flex-direction: column;
 }
 
-.banner-loser img {
+.container-square_banner-loser img {
   width: 300px;
   height: 300px;
 }
 
-.banner-loser button {
+.container-square_banner-loser button {
   font-size: 20px;
   border: none;
   border-radius: 20px;

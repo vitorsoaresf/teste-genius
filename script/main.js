@@ -1,8 +1,12 @@
 const NUMBER_MAX_COLORS = 4;
 const COLOR_ARRAY = ["red", "green", "yellow", "blue"];
-const bannerLoser = document.getElementsByClassName("banner-loser")[0];
+const bannerLoser = document.getElementsByClassName(
+  "container-square_banner-loser"
+)[0];
 const score = document.getElementById("score");
-const btPlayGame = document.getElementsByClassName("bt-play-game")[0];
+const btPlayGame = document.getElementsByClassName(
+  "container-square_bt-play-game"
+)[0];
 
 let sequenceColors = null;
 let countCompareColors = null;
@@ -31,7 +35,10 @@ const removeColorSquareWithoutEmphasis = (color) => {
   const listOtherElements = COLOR_ARRAY.filter((item) => item !== color);
 
   listOtherElements.forEach((color) => {
-    const square = document.getElementsByClassName(`square-${color}`)[0];
+    const square = document.getElementsByClassName(
+      `container-square_${color}`
+    )[0];
+
     square.classList.add("remove-color");
   });
 };
@@ -40,8 +47,28 @@ const addColorSquareWithoutEmphasis = (color) => {
   const listOtherElements = COLOR_ARRAY.filter((item) => item !== color);
 
   listOtherElements.forEach((color) => {
-    const square = document.getElementsByClassName(`square-${color}`)[0];
+    const square = document.getElementsByClassName(
+      `container-square_${color}`
+    )[0];
     square.classList.remove("remove-color");
+  });
+};
+
+const removePointersEventContainers = () => {
+  COLOR_ARRAY.forEach((color) => {
+    const square = document.getElementsByClassName(
+      `container-square_${color}`
+    )[0];
+    square.style.pointerEvents = "none";
+  });
+};
+
+const addPointersEventContainers = () => {
+  COLOR_ARRAY.forEach((color) => {
+    const square = document.getElementsByClassName(
+      `container-square_${color}`
+    )[0];
+    square.style.pointerEvents = "auto";
   });
 };
 
@@ -64,21 +91,22 @@ const playSoundColor = (color) => {
 };
 
 const loadingFeedbackColor = async () => {
-  for (let count = 0; count < sequenceColors.length; count++) {
-    const color = sequenceColors[count];
-    const img = document.getElementsByClassName(`square-${color}`)[0];
+  for (const color of sequenceColors) {
+    const img = document.getElementsByClassName(`container-square_${color}`)[0];
 
     await waitingTime().then(() => {
-      img.classList.add(`square-${color}-feedback`);
+      img.classList.add(`container-square_${color}-feedback`);
       playSoundColor(color);
+      removePointersEventContainers();
       removeColorSquareWithoutEmphasis(color);
     });
 
     await waitingTime().then(() => {
-      img.classList.remove(`square-${color}-feedback`);
+      img.classList.remove(`container-square_${color}-feedback`);
       addColorSquareWithoutEmphasis(color);
     });
   }
+  addPointersEventContainers();
 };
 
 const verifyIfCurrentColorIsTheLastElementFromListColors = () => {
@@ -87,14 +115,14 @@ const verifyIfCurrentColorIsTheLastElementFromListColors = () => {
 
 const resetInitalValues = () => {
   bannerLoser.style.visibility = "visible";
-  btPlayGame.classList.add("pulse");
+  btPlayGame.classList.add("container-square_pulse");
   sequenceColors = null;
   countCompareColors = null;
   valueSumCorrectSquareSelected = null;
 };
 
 const compareColorPressed = async (colorSelected) => {
-  if (sequenceColors) {
+  if (sequenceColors?.length) {
     if (sequenceColors[countCompareColors] === colorSelected) {
       countCompareColors++;
 
@@ -111,7 +139,7 @@ const compareColorPressed = async (colorSelected) => {
 
 const resetGame = () => {
   bannerLoser.style.visibility = "hidden";
-  btPlayGame.classList.remove("pulse");
+  btPlayGame.classList.remove("container-square_pulse");
   score.innerHTML = "🎉" + 0;
   countCompareColors = 0;
   sequenceColors = [];

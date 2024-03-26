@@ -12,7 +12,8 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/asset/css/style.css" />
+    <link rel="stylesheet" href="asset/css/reset.css" />
+    <link rel="stylesheet" href="asset/css/style.css" />
   </head>
 
   <body>
@@ -25,24 +26,24 @@
         <img src="asset/img/image.png" alt="imagem_genis" />
       </div>
 
-      <div style="position: absolute">
+      <div class="container-square">
         <img
           onclick="compareColorPressed('red')"
-          class="square square-red"
+          class="container-square_default container-square_red"
           src="asset/img/red-part.png"
           alt="imagem square red"
         />
 
         <img
           onclick="compareColorPressed('green')"
-          class="square square-green"
+          class="container-square_default container-square_green"
           src="asset/img/green-part.png"
           alt="imagem square green"
         />
 
         <img
           onclick="compareColorPressed('yellow')"
-          class="square square-yellow"
+          class="container-square_default container-square_yellow"
           src="asset/img/yellow-part.png"
           alt="imagem square yellow"
         />
@@ -50,7 +51,7 @@
         <img
           onclick="compareColorPressed('blue')"
           onc
-          class="square square-blue"
+          class="container-square_default container-square_blue"
           src="asset/img/blue-part.png"
           alt="imagem square blue"
         />
@@ -58,16 +59,16 @@
 
       <img
         onclick="resetGame()"
-        class="bt-play-game pulse"
+        class="container-square_bt-play-game container-square_pulse"
         src="asset/img/bt_play.png"
         alt="imagem play game"
       />
 
-      <div class="score-board">
+      <div class="container-square_score-board">
         <span id="score">🎉0</span>
       </div>
 
-      <div class="banner-loser">
+      <div class="container-square_banner-loser">
         <img src="asset/img/game-over.png" alt="imagem game over" />
       </div>
     </main>
