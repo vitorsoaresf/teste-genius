@@ -18,15 +18,16 @@
   align-items: center;
   height: 100vh;
 }
+
 .square {
   background-color: transparent;
-  position: var(--square-position);
   cursor: pointer;
 }
 
 .square-red {
-  top: var(--vertical-position);
-  right: var(--horizontal-position);
+  position: absolute;
+  top: -230px;
+  left: -5px;
 }
 
 .square-red:hover {
@@ -44,8 +45,9 @@
 }
 
 .square-green {
-  top: var(--vertical-position);
-  left: var(--horizontal-position);
+  position: absolute;
+  top: -230px;
+  left: -230px;
 }
 
 .square-green:hover {
@@ -63,8 +65,9 @@
 }
 
 .square-yellow {
-  bottom: var(--vertical-position);
-  left: var(--horizontal-position);
+  position: absolute;
+  bottom: -220px;
+  left: -230px;
 }
 
 .square-yellow:hover {
@@ -82,8 +85,9 @@
 }
 
 .square-blue {
-  bottom: var(--vertical-position);
-  right: var(--horizontal-position);
+  position: absolute;
+  bottom: -220px;
+  left: 0px;
 }
 
 .square-blue:hover {
@@ -106,7 +110,6 @@
 
 .score {
   font-size: 50px;
-  position: absolute;
   background-color: var(--color-white);
   width: 150px;
   height: 150px;
@@ -114,4 +117,30 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.bt-play-game {
+  width: 100px;
+  height: 100px;
+  /* position: absolute; */
+  z-index: 3;
+  bottom: 5px;
+  cursor: pointer;
+  transition: width 0.5s, height 0.5s;
+}
+
+.bt-play-game:hover {
+  width: 150px;
+  height: 150px;
+  filter: (50%);
+  filter: drop-shadow(10px 10px 10px red);
+}
+
+.bt-play-game:active {
+  width: 100px;
+  height: 100px;
+}
+
+.figure-fixed {
+  position: relative;
 }

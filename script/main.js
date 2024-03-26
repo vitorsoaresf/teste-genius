@@ -86,5 +86,3 @@ const compareColorPressed = (colorSelected) => {
     alert("vc perdeu");
   }
 };
-
-resetGame();
