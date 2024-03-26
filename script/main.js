@@ -8,8 +8,25 @@ const selectRandomColor = () => {
 };
 
 const addColorInTheList = () => {
-  sequenceColors.push(selectRandomColor());
-  console.log(sequenceColors);
+  const color = selectRandomColor();
+  sequenceColors.push(color);
+  loadingFeedbackColor(0);
+};
+
+const waitingTime = () => {
+  return new Promise((res) => setTimeout(res, 1000));
+};
+
+const loadingFeedbackColor = async () => {
+  for (let i = 0; i < sequenceColors.length; i++) {
+    const color = sequenceColors[i];
+    const img = document.getElementsByClassName(`square-${color}`)[0];
+    img.classList.add(`square-${color}-feedback`);
+
+    await waitingTime().then(() => {
+      img.classList.remove(`square-${color}-feedback`);
+    });
+  }
 };
 
 const resetGame = () => {

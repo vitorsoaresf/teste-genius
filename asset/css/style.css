@@ -3,8 +3,8 @@
   --square-height: 120px;
   --square-z-index: 1;
   --square-position: absolute;
-  --horizontal-position: 450px;
-  --vertical-position: 140px;
+  --horizontal-position: 460px;
+  --vertical-position: 95px;
 }
 
 .main_container {
@@ -14,37 +14,66 @@
   height: 100vh;
 }
 .square {
-  width: var(--square-width);
-  height: var(--square-height);
-  z-index: var(--square-z-index);
+  background-color: transparent;
   position: var(--square-position);
   cursor: pointer;
 }
 
 .square-red {
-  background-color: red;
-  transform: rotate(45deg);
   top: var(--vertical-position);
   right: var(--horizontal-position);
+}
+
+.square-red:hover {
+  filter: drop-shadow(10px 5px 15px red);
+}
+
+.square-red-feedback {
+  filter: drop-shadow(10px 5px 15px red);
 }
 
 .square-green {
-  background-color: green;
-  transform: rotate(135deg);
   top: var(--vertical-position);
   left: var(--horizontal-position);
 }
 
+.square-green:hover {
+  filter: drop-shadow(10px 5px 15px green);
+}
+
+.square-green-feedback {
+  filter: drop-shadow(10px 5px 15px green);
+}
+
 .square-yellow {
-  background-color: yellow;
-  transform: rotate(225deg);
   bottom: var(--vertical-position);
   left: var(--horizontal-position);
 }
 
+.square-yellow:hover {
+  filter: drop-shadow(10px 5px 15px yellow);
+}
+
+.square-yellow-feedback {
+  filter: drop-shadow(10px 5px 15px yellow);
+}
+
 .square-blue {
-  background-color: blue;
-  transform: rotate(315deg);
   bottom: var(--vertical-position);
   right: var(--horizontal-position);
+}
+
+.square-blue:hover {
+  filter: drop-shadow(10px 5px 15px blue);
+}
+
+.square-blue-feedback {
+  filter: drop-shadow(10px 5px 15px blue);
+}
+
+.correct-color {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  visibility: hidden;
 }

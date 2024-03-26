@@ -16,23 +16,46 @@
   </head>
 
   <body>
+    <audio src="asset/sound/fa.mp3" id="play-fa"></audio>
+    <audio src="asset/sound/la.mp3" id="play-la"></audio>
+    <audio src="asset/sound/sol.mp3" id="play-sol"></audio>
+    <audio src="asset/sound/mi.mp3" id="play-mi"></audio>
     <main class="main_container" id="box">
-      <figure class="container__img">
+      <figure>
         <img src="asset/img/image.png" alt="imagem_genis" />
       </figure>
-      <div class="square square-red" onclick="compareColorPressed('red')"></div>
-      <div
-        class="square square-blue"
-        onclick="compareColorPressed('blue')"
-      ></div>
-      <div
-        class="square square-yellow"
-        onclick="compareColorPressed('yellow')"
-      ></div>
-      <div
-        class="square square-green"
-        onclick="compareColorPressed('green')"
-      ></div>
+
+      <figure onclick="compareColorPressed('red')">
+        <img
+          class="square square-red"
+          src="asset/img/red-part.png"
+          alt="imagem square red"
+        />
+      </figure>
+
+      <figure onclick="compareColorPressed('green')">
+        <img
+          class="square square-green"
+          src="asset/img/green-part.png"
+          alt="imagem square green"
+        />
+      </figure>
+
+      <figure onclick="compareColorPressed('yellow')">
+        <img
+          class="square square-yellow"
+          src="asset/img/yellow-part.png"
+          alt="imagem square yellow"
+        />
+      </figure>
+
+      <figure onclick="compareColorPressed('blue')">
+        <img
+          class="square square-blue"
+          src="asset/img/blue-part.png"
+          alt="imagem square blue"
+        />
+      </figure>
     </main>
 
     <script src="script/main.js"></script>
