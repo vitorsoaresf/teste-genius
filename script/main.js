@@ -1,5 +1,5 @@
 const NUMBER_MAX_COLORS = 4;
-const COLOR_ARRAY = ["red", "green", "yellow", "blue"];
+const COLOR_ARRAY = ["red", "blue", "yellow", "green"];
 const bannerLoser = document.getElementsByClassName(
   "container-square_banner-loser"
 )[0];
@@ -25,10 +25,6 @@ const addColorInTheListSortedColor = () => {
   const color = selectRandomColor();
   sequenceColors.push(color);
   loadingFeedbackColor();
-};
-
-const waitingTime = () => {
-  return new Promise((res) => setTimeout(res, 1500));
 };
 
 const removeColorSquareWithoutEmphasis = (color) => {
@@ -90,21 +86,29 @@ const playSoundColor = (color) => {
   audio.play();
 };
 
+const waitingTime = (time) => {
+  return new Promise((res) => setTimeout(res, time));
+};
+
+const formatAnimationColorizeColorCurrent = async (color, timeWaiting) => {
+  const img = document.getElementsByClassName(`container-square_${color}`)[0];
+
+  await waitingTime(timeWaiting).then(() => {
+    img.classList.add(`container-square_${color}-feedback`);
+    playSoundColor(color);
+    removePointersEventContainers();
+    removeColorSquareWithoutEmphasis(color);
+  });
+
+  await waitingTime(timeWaiting).then(() => {
+    img.classList.remove(`container-square_${color}-feedback`);
+    addColorSquareWithoutEmphasis(color);
+  });
+};
+
 const loadingFeedbackColor = async () => {
   for (const color of sequenceColors) {
-    const img = document.getElementsByClassName(`container-square_${color}`)[0];
-
-    await waitingTime().then(() => {
-      img.classList.add(`container-square_${color}-feedback`);
-      playSoundColor(color);
-      removePointersEventContainers();
-      removeColorSquareWithoutEmphasis(color);
-    });
-
-    await waitingTime().then(() => {
-      img.classList.remove(`container-square_${color}-feedback`);
-      addColorSquareWithoutEmphasis(color);
-    });
+    await formatAnimationColorizeColorCurrent(color, 1000);
   }
   addPointersEventContainers();
 };

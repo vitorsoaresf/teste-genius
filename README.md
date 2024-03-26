@@ -8,6 +8,7 @@
 - Padrão BEM de estilização CSS
 - Técnicas de redução de tamanho das imagens para não pezar no carregamento do browser
 - Inserção de retorno audível para cada cor selecionada
+- Score informando a potuação do jogador
 
 ## Como faço para rodar o projeto
 
