@@ -10,7 +10,7 @@ const selectRandomColor = () => {
 const addColorInTheList = () => {
   const color = selectRandomColor();
   sequenceColors.push(color);
-  loadingFeedbackColor(0);
+  loadingFeedbackColor();
 };
 
 const waitingTime = () => {
@@ -21,7 +21,10 @@ const loadingFeedbackColor = async () => {
   for (let i = 0; i < sequenceColors.length; i++) {
     const color = sequenceColors[i];
     const img = document.getElementsByClassName(`square-${color}`)[0];
-    img.classList.add(`square-${color}-feedback`);
+
+    await waitingTime().then(() => {
+      img.classList.add(`square-${color}-feedback`);
+    });
 
     await waitingTime().then(() => {
       img.classList.remove(`square-${color}-feedback`);
