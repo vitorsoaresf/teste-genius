@@ -57,17 +57,18 @@
 
       <img
         onclick="resetGame()"
-        class="bt-play-game"
+        class="bt-play-game pulse"
         src="asset/img/bt_play.png"
         alt="imagem play game"
       />
 
-      <span class="score">0</span>
+      <div class="score-board">
+        <span id="score">0</span>
+      </div>
 
-      <span class="banner-loser"
-        >Vc perdeu
-        <button onclick="resetGame()">inciar novamente</button>
-      </span>
+      <div class="banner-loser">
+        <img src="asset/img/game-over.png" alt="imagem game over" />
+      </div>
     </main>
 
     <script src="script/main.js"></script>

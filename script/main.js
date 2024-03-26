@@ -1,7 +1,8 @@
 const NUMBER_MAX_COLORS = 4;
 const COLOR_ARRAY = ["red", "green", "yellow", "blue"];
 const bannerLoser = document.getElementsByClassName("banner-loser")[0];
-const score = document.getElementsByClassName("score")[0];
+const score = document.getElementById("score");
+const btPlayGame = document.getElementsByClassName("bt-play-game")[0];
 
 let sequenceColors = null;
 let countCompareColors = null;
@@ -12,7 +13,6 @@ const selectRandomColor = () => {
 };
 
 const sumScoreWhenColorSelectedIsCorrect = () => {
-  let score = document.getElementsByClassName("score")[0];
   valueSumCorrectSquareSelected += 100;
   score.innerHTML = valueSumCorrectSquareSelected;
 };
@@ -67,24 +67,28 @@ const verifyIfLastElementIsActive = () => {
 };
 
 const compareColorPressed = async (colorSelected) => {
-  if (sequenceColors[countCompareColors] === colorSelected) {
-    countCompareColors++;
+  if (sequenceColors) {
+    if (sequenceColors[countCompareColors] === colorSelected) {
+      countCompareColors++;
 
-    if (verifyIfLastElementIsActive()) {
-      countCompareColors = 0;
-      sumScoreWhenColorSelectedIsCorrect();
-      addColorInTheList();
+      if (verifyIfLastElementIsActive()) {
+        countCompareColors = 0;
+        sumScoreWhenColorSelectedIsCorrect();
+        addColorInTheList();
+      }
+    } else {
+      bannerLoser.style.visibility = "visible";
+      btPlayGame.classList.add("pulse");
+      sequenceColors = null;
+      countCompareColors = null;
+      valueSumCorrectSquareSelected = null;
     }
-  } else {
-    bannerLoser.style.visibility = "visible";
-    sequenceColors = null;
-    countCompareColors = null;
-    valueSumCorrectSquareSelected = null;
   }
 };
 
 const resetGame = () => {
   bannerLoser.style.visibility = "hidden";
+  btPlayGame.classList.remove("pulse");
   score.innerHTML = 0;
   countCompareColors = 0;
   sequenceColors = [];
