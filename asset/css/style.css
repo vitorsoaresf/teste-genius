@@ -1,10 +1,15 @@
 :root {
-  --square-width: 210px;
-  --square-height: 120px;
+  --square-width-zoom: 235px;
+  --square-height-zoom: 235px;
   --square-z-index: 1;
   --square-position: absolute;
   --horizontal-position: 460px;
   --vertical-position: 95px;
+}
+
+.figure:hover {
+  width: var(--square-width-zoom);
+  height: var(--square-height-zoom);
 }
 
 .main_container {
@@ -26,6 +31,8 @@
 
 .square-red:hover {
   filter: drop-shadow(10px 5px 15px red);
+  width: var(--square-width-zoom);
+  height: var(--square-height-zoom);
 }
 
 .square-red-feedback {
@@ -39,6 +46,8 @@
 
 .square-green:hover {
   filter: drop-shadow(10px 5px 15px green);
+  width: var(--square-width-zoom);
+  height: var(--square-height-zoom);
 }
 
 .square-green-feedback {
@@ -52,6 +61,8 @@
 
 .square-yellow:hover {
   filter: drop-shadow(10px 5px 15px yellow);
+  width: var(--square-width-zoom);
+  height: var(--square-height-zoom);
 }
 
 .square-yellow-feedback {
@@ -65,6 +76,8 @@
 
 .square-blue:hover {
   filter: drop-shadow(10px 5px 15px blue);
+  width: var(--square-width-zoom);
+  height: var(--square-height-zoom);
 }
 
 .square-blue-feedback {
