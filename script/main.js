@@ -1,5 +1,8 @@
 const NUMBER_MAX_COLORS = 4;
 const COLOR_ARRAY = ["red", "green", "yellow", "blue"];
+const bannerLoser = document.getElementsByClassName("banner-loser")[0];
+const score = document.getElementsByClassName("score")[0];
+
 let sequenceColors = null;
 let countCompareColors = null;
 let valueSumCorrectSquareSelected = null;
@@ -59,20 +62,11 @@ const loadingFeedbackColor = async () => {
   }
 };
 
-const resetGame = () => {
-  let score = document.getElementsByClassName("score")[0];
-  countCompareColors = 0;
-  sequenceColors = [];
-  valueSumCorrectSquareSelected = 0;
-  score.innerHTML = 0;
-  addColorInTheList();
-};
-
 const verifyIfLastElementIsActive = () => {
   return sequenceColors.length === countCompareColors;
 };
 
-const compareColorPressed = (colorSelected) => {
+const compareColorPressed = async (colorSelected) => {
   if (sequenceColors[countCompareColors] === colorSelected) {
     countCompareColors++;
 
@@ -82,7 +76,18 @@ const compareColorPressed = (colorSelected) => {
       addColorInTheList();
     }
   } else {
-    resetGame();
-    alert("vc perdeu");
+    bannerLoser.style.visibility = "visible";
+    sequenceColors = null;
+    countCompareColors = null;
+    valueSumCorrectSquareSelected = null;
   }
+};
+
+const resetGame = () => {
+  bannerLoser.style.visibility = "hidden";
+  score.innerHTML = 0;
+  countCompareColors = 0;
+  sequenceColors = [];
+  valueSumCorrectSquareSelected = 0;
+  addColorInTheList();
 };
