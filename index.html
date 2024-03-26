@@ -21,41 +21,46 @@
     <audio src="asset/sound/sol.mp3" id="play-sol"></audio>
     <audio src="asset/sound/mi.mp3" id="play-mi"></audio>
     <main class="main_container" id="box">
-      <figure>
+      <div>
         <img src="asset/img/image.png" alt="imagem_genis" />
-      </figure>
-
-      <figure onclick="compareColorPressed('red')">
+      </div>
+      <div style="position: absolute">
         <img
+          onclick="compareColorPressed('red')"
           class="square square-red"
           src="asset/img/red-part.png"
           alt="imagem square red"
         />
-      </figure>
 
-      <figure onclick="compareColorPressed('green')">
         <img
+          onclick="compareColorPressed('green')"
           class="square square-green"
           src="asset/img/green-part.png"
           alt="imagem square green"
         />
-      </figure>
 
-      <figure onclick="compareColorPressed('yellow')">
         <img
+          onclick="compareColorPressed('yellow')"
           class="square square-yellow"
           src="asset/img/yellow-part.png"
           alt="imagem square yellow"
         />
-      </figure>
 
-      <figure onclick="compareColorPressed('blue')">
         <img
+          onclick="compareColorPressed('blue')"
+          onc
           class="square square-blue"
           src="asset/img/blue-part.png"
           alt="imagem square blue"
         />
-      </figure>
+      </div>
+
+      <img
+        onclick="resetGame()"
+        class="bt-play-game"
+        src="asset/img/bt_play.png"
+        alt="imagem play game"
+      />
 
       <span class="score">0</span>
     </main>
